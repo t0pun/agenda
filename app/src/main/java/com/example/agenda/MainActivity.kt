@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
                 val appointment = "Rendez-vous le $selectate à ${timeFormat.format(selectedDate.time)} : $title - $description"
                 //appointments.add(appointment)
 
-                Toast.makeText(this, "cest bonnn", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "cest bonnn", Toast.LENGTH_SHORT).show()
 
             }
             alertDialogDetails.setNegativeButton("Annuler"){ dialog, which ->
