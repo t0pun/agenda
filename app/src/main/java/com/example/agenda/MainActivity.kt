@@ -32,12 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*calendarView.OnDateSetListener { _, year, month, dayOfMonth ->
-            selectedDate.set(Calendar.YEAR, year)
-            selectedDate.set(Calendar.MONTH, month)
-            selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            showTimePicker()
-        }*/
+
         calendarView = findViewById(R.id.calendarView)
 
 
@@ -52,35 +47,9 @@ class MainActivity : AppCompatActivity() {
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val selectedDate = "$dayOfMonth/${month + 1}/$year"
             selectate = selectedDate
-            //selectedDate.set(year, month, dayOfMonth)
-            // Utilisez la variable selectedDate comme vous le souhaitez
-            // Par exemple, affichez-la dans un Toast ou effectuez d'autres opérations
-            //Toast.makeText(this, selectedDate, Toast.LENGTH_SHORT).show()
+
         }
 
-        /* calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
-             val calendar = Calendar.getInstance()
-             calendar.set(year, month, dayOfMonth)
-
-             val selectedDate = SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(calendar.time)
-             val selectedTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(calendar.time)
-
-
-                 val dialogBuilder = AlertDialog.Builder(this)
-                     .setTitle("Détails du rendez-vous")
-                     .setMessage(
-                         "Date : $selectedDate\n" +
-                                 "Heure : $selectedTime\n" +
-                                 "Titre : $appointmentTitle\n" +
-                                 "Description : $appointmentDescription"
-                     )
-                     .setPositiveButton("OK") { dialog, which -> dialog.dismiss() }
-
-                 val alertDialog = dialogBuilder.create()
-                 alertDialog.show()
-
-         }
-     */
 
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val selectedDate = "$dayOfMonth/${month + 1}/$year"
@@ -105,16 +74,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /*private fun showDatePicker() {
-        val currentDate = Calendar.getInstance()
-        val year = currentDate.get(Calendar.YEAR)
-        val month = currentDate.get(Calendar.MONTH)
-        val day = currentDate.get(Calendar.DAY_OF_MONTH)
-
-        val datePickerDialog = DatePickerDialog(this, calendarView, year, month, day)
-        datePickerDialog.show()
-    }
-    */
 
 
     private fun showTimePicker() {
@@ -175,25 +134,6 @@ class MainActivity : AppCompatActivity() {
 
             alertDialogDetails.setPositiveButton("OK"){ dialog, which ->
 
-                /*val dateConfirm = dialog2View.findViewById<EditText>(R.id.confirm_date)
-                val heureConfirm = dialog2View.findViewById<EditText>(R.id.confirm_time)
-                val titleConfirm = dialog2View.findViewById<EditText>(R.id.confirm_title)
-                val descriptionConfirm = dialog2View.findViewById<EditText>(R.id.confirm_description)
-
-                Toast.makeText(this, "saluuuuuuuuuuuuuuut"+selectate+"+"+timeFormat.format(selectedDate.time)+"+"+title+"+"+description,Toast.LENGTH_SHORT).show()
-                dateConfirm.setText(selectate)
-                heureConfirm.setText(timeFormat.format(selectedDate.time))
-                titleConfirm.setText(title)
-                //dateConfirm.text = appointment
-                //dateConfirm.text = selectate
-                //heureConfirm.text = timeFormat.format(selectedDate.time)
-                //titleConfirm.text = title
-                //descriptionConfirm.text = description
-*/
-                val appointment = "Rendez-vous le $selectate à ${timeFormat.format(selectedDate.time)} : $title - $description"
-                //appointments.add(appointment)
-
-                //Toast.makeText(this, "cest bonnn", Toast.LENGTH_SHORT).show()
 
             }
             alertDialogDetails.setNegativeButton("Annuler"){ dialog, which ->
